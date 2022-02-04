@@ -1,12 +1,53 @@
+//фильтрация
+document.addEventListener('DOMContentLoaded', () => {
+
+    let getSort = ({ target }) => {
+        let order = (target.dataset.order = -(target.dataset.order || -1));
+        let index = [...target.parentNode.cells].indexOf(target);
+        let collator = new Intl.Collator(['en', 'ru'], { numeric: true });
+        let comparator = (index, order) => (a, b) => order * collator.compare(
+            a.children[index].innerHTML,
+            b.children[index].innerHTML
+        );
+
+        for(let tBody of target.closest('table').tBodies)
+            tBody.append(...[...tBody.rows].sort(comparator(index, order)));
+
+        for(let cell of target.parentNode.cells)
+            cell.classList.toggle('sorted', cell === target);
+    };
+
+    document.querySelectorAll('.table thead').forEach(tableTH => tableTH.addEventListener('click', () => getSort(event)));
+
+});
+
 //проверяем наличие элемента в local Storage
 if (!localStorage.getItem('goods')){
-    localStorage.setItem('goods', JSON.stringify([]))
+    localStorage.setItem('goods', JSON.stringify([
+        {   0: "good_0",
+            1: "Mercedes",
+            2: "EQE",
+            3: "Серый",
+            4: "9",
+            5: "3 730 000",
+            6: 0,
+            7: 0,
+        },
+        {   0: "good_1",
+            1: "BMW",
+            2: "X1",
+            3: "Черный",
+            4: "11",
+            5: "2 790 000",
+            6: 0,
+            7: 0,
+        }
+    ]))
 }
 //параметры для поиска
 let options = {
     valueNames: ['name', 'price']
 }
-
 let userList
 
 //кнопка для добавления нового автомобиля
@@ -22,25 +63,25 @@ document.querySelector("button.add_new").addEventListener('click', function (e){
         document.getElementById('good_color').value = ""
         document.getElementById('good_count').value = "1"
         document.getElementById('good_price').value = "1"
-        //конвертируем полученные данные в массив
+//конвертируем полученные данные в массив
         let goods = JSON.parse(localStorage.getItem('goods'))
-        goods.push(['good_'+goods.length, name, model, color, count, price, 0, 0, 0])
+        goods.push(['good_'+Math.floor(Math.random( ) * (1000+1)), name, model, color, count, price, 0, 0])
         localStorage.setItem('goods', JSON.stringify(goods))
-        //обновить отображение интерфейса
+//обновить отображение интерфейса
         update_goods()
-        //закрыть окно после ввода данных
-        //сообщение об ошибке при неверном вводе данных
+//закрыть окно после ввода данных
+//сообщение об ошибке при неверном вводе данных
     }
 })
-
 update_goods()
-
+//функция обновления интерфейса
 function update_goods(){
     let tbody = document.querySelector('.list')
     tbody.innerHTML = ""
     let goods = JSON.parse(localStorage.getItem('goods'))
+    console.log(goods)
     if(goods.length){
-        table1.hidden = false
+        table.hidden = false
         for (let i = 0; i<goods.length; i++ ){
             tbody.insertAdjacentHTML('beforeend',
                 `
@@ -57,9 +98,29 @@ function update_goods(){
                 `
             )
         }
-        //использование библиотеки для поиска
+//использование библиотеки для поиска
         userList = new List('goods', options);
     } else {
-        table1.hidden = true;
+        table.hidden = true;
     }
 }
+//обработка удаления элемента
+document.querySelector('.list').addEventListener('click', function (e){
+    if(!e.target.dataset.delete){
+        return
+    }
+//предупреждение об удалении элемента
+    if(confirm('Удалить пользователя?')) {
+        let goods = JSON.parse(localStorage.getItem('goods'))
+        for(let i=0; i<goods.length; i++){
+            if(goods[i][0] === e.target.dataset.delete){
+                goods.splice(i, 1)
+                localStorage.setItem('goods', JSON.stringify(goods))
+                update_goods()
+            }
+        }
+        alert('Пользователь удалён');
+    } else {
+// закрыть окно
+    }
+})
