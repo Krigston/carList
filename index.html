@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body class="body">
+    <div class="container">
+        <div id="goods">
+           <div class="menu">
+                   <input type="text" placeholder="Поиск" class="search">
+               <div class="add btn_add">
+                   <a href="#exampleModal" class="add">+</a>
+               </div>
+           </div>
+           <table class="table" >
+               <thead class="table_head">
+                   <tr class="table_head__list">
+                       <th data-type="string" class="table_head__number">№</th>
+                       <th data-type="string" class="table_head__item">Марка</th>
+                       <th data-type="string" class="table_head__item">Модель</th>
+                       <th data-type="string" class="table_head__item">Цвет</th>
+                       <th data-type="number" class="table_head__item">Количество</th>
+                       <th data-type="number" class="table_head__item shel">Цена</th>
+                   </tr>
+               </thead>
+               <tbody class="list" id="table1">
+
+               </tbody>
+           </table>
+        </div>
+        <div class="modal fade" id="exampleModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Добавить автомобиль</h5>
+                        <a href="#" class="modal_close">Закрыть окно</a>
+                    </div>
+                    <div class="modal-body">
+                        <label for="good_name" class="form_label">Марка</label>
+                        <input type="text" class="form_control" id="good_name" maxlength="40">
+                        <label for="good_model" class="form_label">Модель</label>
+                        <input type="text" class="form_control" id="good_model" maxlength="40">
+                        <label for="good_color" class="form_label">Цвет</label>
+                        <input type="text" class="form_control" id="good_color" maxlength="40">
+                        <label for="good_count" class="form_label" >Количество</label>
+                        <input type="text" class="form_control" id="good_count" min="1" value="1">
+                        <label for="good_price" class="form_label">Цена</label>
+                        <input type="text" class="form_control" id="good_price" min="1" value="1">
+                        <button  type="submit" class="add_new btn btn_save">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="list.min.js"></script>
+        <script src="main.js"></script>
+    </div>
+</body>
+</html>

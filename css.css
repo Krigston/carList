@@ -1,0 +1,111 @@
+
+.container{
+    width: 80%;
+    margin:0 auto;
+    background-color: #d4d4d4;
+}
+.menu{
+    padding: 50px 0 10px 0;
+    margin: 0 0 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search{
+    border-radius: 5px;
+    width: 220px;
+    height: 30px;
+}
+.btn_add{
+    width: 30px;
+    height: 30px;
+    background-color: aqua;
+}
+.table_head{
+    width: 80%;
+    margin:0 auto;
+}
+
+.list{
+    width: 80%;
+    margin:0 auto;
+}
+.align-middle{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+.table{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    color: #fff;
+    background: linear-gradient(to bottom right, #272e3d, #F87E7B);
+    padding: 15px 30px;
+    border-radius: 30px;
+}
+.table_head__list{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    align-items:center;
+
+}
+.table_head__number{
+    width: 30px;
+    text-align: center;
+}
+.table_head__item{
+    width: 20%;
+    height: 25px;
+    flex-grow: 1;
+    border: 1px black solid;
+    text-align: center;
+}
+.btn_delete--position{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+.shel{
+    margin: 0 54px 0 0;
+}
+.btn_refactor--position{
+    width: 25px;
+    height: 25px;
+    text-align: center;
+}
+/*модальное окно*/
+#exampleModal{
+    display: none;
+}
+#exampleModal:target{
+    display: block;
+}
+.modal{
+    margin:0 auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.modal-content{
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(to bottom right, #B05574, #F87E7B);
+    padding: 15px 30px;
+    border-radius: 30px;
+    width: 720px;
+    margin:0 auto;
+    box-shadow: 0px 5px 100px 100px rgba(34, 60, 80, 0.77);
+}
+.modal-body{
+    display: flex;
+    flex-wrap: wrap;
+    width: 520px;
+    flex-direction: column;
+}
