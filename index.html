@@ -7,11 +7,11 @@
 </head>
 <body class="body">
     <div class="container">
-        <div id="goods">
+        <div id="cars">
            <div class="menu">
                    <input type="text" placeholder="Поиск" class="search">
-               <div class="add btn_add">
-                   <a href="#exampleModal" class="add">+</a>
+               <div class="add">
+                   <a href="#exampleModal"><button class="btn_add">+</button></a>
                </div>
            </div>
            <table class="table" id="table">
@@ -35,9 +35,10 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Добавить автомобиль</h5>
-                        <a href="#" class="modal_close">Закрыть окно</a>
+                        <h5 class="modal-title" id="exampleModalLabel__2">Изменить данные</h5>
+                        <a href="#" class="modal_close"><button>✖</button></a>
                     </div>
-                    <div class="modal-body">
+                    <form class="modal-body">
                         <label for="good_name" class="form_label">Марка</label>
                         <input type="text" class="form_control" id="good_name" maxlength="40">
                         <label for="good_model" class="form_label">Модель</label>
@@ -45,11 +46,18 @@
                         <label for="good_color" class="form_label">Цвет</label>
                         <input type="text" class="form_control" id="good_color" maxlength="40">
                         <label for="good_count" class="form_label" >Количество</label>
-                        <input type="text" class="form_control" id="good_count" min="1" value="1">
+                        <input type="number" class="form_control" id="good_count" min="1" value="1">
                         <label for="good_price" class="form_label">Цена</label>
-                        <input type="text" class="form_control" id="good_price" min="1" value="1">
-                        <button  type="submit" class="add_new btn btn_save">Сохранить</button>
-                    </div>
+                        <input type="number" class="form_control" id="good_price" min="1" value="1">
+                        <div class="btn_container">
+                            <button type="submit" class="add_new btn btn_save">
+                                <a href="#" class="modal_close">Сохранить</a>
+                            </button>
+                            <button type="submit" class="refactor btn btn_save">
+                                <a href="#" class="modal_close">Сохранить изменения</a>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

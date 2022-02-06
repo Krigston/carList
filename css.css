@@ -3,6 +3,7 @@
     width: 80%;
     margin:0 auto;
     background-color: #d4d4d4;
+    border-radius: 10px;
 }
 .menu{
     padding: 50px 0 10px 0;
@@ -14,19 +15,48 @@
 
 .search{
     border-radius: 5px;
-    width: 220px;
+    width: 320px;
     height: 30px;
 }
 .btn_add{
-    width: 30px;
-    height: 30px;
-    background-color: aqua;
+    width: 35px;
+    height: 35px;
+    background-color: #8493bb;
+    margin: 0 0 0 10px;
+    border-radius: 5px;
+    border: 0.5px solid;
+}
+/*таблица*/
+.table{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    color: #fff;
+    background: linear-gradient(to bottom right, #7b90bd, #9d9db7);
+    padding: 15px 30px;
+    border-radius: 10px;
 }
 .table_head{
     width: 80%;
     margin:0 auto;
 }
-
+.table_head__list{
+    width: 100%;
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    align-items:center;
+}
+.table_head__item{
+    width: 20%;
+    height: 25px;
+    flex-grow: 1;
+    border: 1px black solid;
+    text-align: center;
+}
+.shel{
+    margin: 0 54px 0 0;
+}
 .list{
     width: 80%;
     margin:0 auto;
@@ -37,32 +67,8 @@
     list-style-type: none;
     padding: 0;
 }
-.table{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    color: #fff;
-    background: linear-gradient(to bottom right, #272e3d, #F87E7B);
-    padding: 15px 30px;
-    border-radius: 30px;
-}
-.table_head__list{
-    width: 100%;
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    align-items:center;
-
-}
 .table_head__number{
     width: 30px;
-    text-align: center;
-}
-.table_head__item{
-    width: 20%;
-    height: 25px;
-    flex-grow: 1;
-    border: 1px black solid;
     text-align: center;
 }
 .btn_delete--position{
@@ -70,13 +76,15 @@
     height: 25px;
     text-align: center;
 }
-.shel{
-    margin: 0 54px 0 0;
-}
-.btn_refactor--position{
+.btn_refactor{
     width: 25px;
     height: 25px;
     text-align: center;
+    padding: 0;
+}
+.good_refactor{
+    text-decoration:none;
+    color: black;
 }
 /*модальное окно*/
 #exampleModal{
@@ -96,16 +104,56 @@
 .modal-content{
     font-weight: bold;
     color: #fff;
-    background: linear-gradient(to bottom right, #B05574, #F87E7B);
+    background: linear-gradient(to bottom right, #7b90bd, #9d9db7);
     padding: 15px 30px;
-    border-radius: 30px;
+    border-radius: 15px;
     width: 720px;
-    margin:0 auto;
-    box-shadow: 0px 5px 100px 100px rgba(34, 60, 80, 0.77);
+    margin:40px auto;
+    box-shadow: 0 5px 100px 100px rgba(34, 60, 80, 0.77);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.modal-header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.modal-title{
+    flex-grow: 1;
+    font-size: 22px;
+    margin: 0;
+    padding: 0 0 0 30px;
 }
 .modal-body{
     display: flex;
     flex-wrap: wrap;
     width: 520px;
     flex-direction: column;
+
 }
+.form_label{
+    font-size: 18px;
+}
+.edit-controls{
+    position: absolute;
+}
+.btn_container{
+    width: 100%;
+    text-align: center;
+}
+.btn_save{
+    margin: 15px 0 0 0;
+    width: 200px;
+    flex-basis: 100%
+}
+.modal_close{
+    text-decoration: none;
+    color: black;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
